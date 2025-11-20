@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PabloX NeoPicasso</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Pretendard", "Segoe UI", system-ui, sans-serif;
+      background-color: #f3f4f6;
+      color: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 200px;
+    }
+
+    #app {
+      width: min(960px, 100%);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+      padding: 32px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #4b5563;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .post {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      background: #fafafa;
+    }
+
+    .post h2 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .post time {
+      font-size: 0.85rem;
+      color: #6b7280;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .post-content {
+      line-height: 1.7;
+      color: #1f2937;
+    }
+
+    .guide {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(960px, calc(100% - 32px));
+      padding: 18px;
+      background: #111827;
+      color: #f9fafb;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      box-shadow: 0 -14px 50px rgba(15, 23, 42, 0.4);
+      z-index: 6;
+    }
+
+    .guide strong {
+      color: #a1e5ff;
+    }
+
+    img.inline {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 12px 0;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>NeoPicasso 개발 기록</h1>
+      
+    </header>
+
+    <main id="posts"></main>
+
+    <section class="guide">
+      <strong>콘텐츠디자인</strong>
+      <ul>
+        <li>본 자료는 NeoPicasso 내부 공유용으로, 저작권이 있는 콘텐츠 및 미공개 정보의 외부 전송·링크 공유는 허가된 경우에만 가능합니다. [Pablo Air] All rights reserved.</li>
+
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    const posts = [
+      {
+        title: "첫 번째 글",
+        date: "2025-11-20",
+        content: `
+          <p>진행 중인 내용, 업데이트 내역, 사용법, 향후 로드맵 등을 공유하는 공간입니다.</p>
+        `
+      },
+      {
+        title: "패치 노트 예시",
+        date: "2025-11-20",
+        content: `
+          <p>1. GIF 업로드 경로를 정리함</p>
+          <p>2. 공유용 텍스트 + 이미지 템플릿을 만든 상태</p>
+          <p>3. Cloudflare Pages에 업로드하면 캐시가 잘 먹히는지 확인 중</p>
+        `
+      },
+      {
+        title: "첫 번째 글",
+        date: "2025-11-20",
+        content: `
+          <p>간단한 글 공유용 페이지를 마련했습니다. 글은 여기에 추가하면 바로 보입니다.</p>
+        `
+      },
+      {
+        title: "첫 번째 글",
+        date: "2025-11-20",
+        content: `
+          <p>간단한 글 공유용 페이지를 마련했습니다. 글은 여기에 추가하면 바로 보입니다.</p>
+        `
+      },
+      {
+        title: "패치 노트 예시",
+        date: "2025-11-20",
+        content: `
+          <p>1. GIF 업로드 경로를 정리함</p>
+          <p>2. 공유용 텍스트 + 이미지 템플릿을 만든 상태</p>
+          <p>3. Cloudflare Pages에 업로드하면 캐시가 잘 먹히는지 확인 중</p>
+        `
+      },
+      {
+        title: "첫 번째 글",
+        date: "2025-11-20",
+        content: `
+          <p>간단한 글 공유용 페이지를 마련했습니다. 글은 여기에 추가하면 바로 보입니다.</p>
+        `
+      },
+    ];
+
+    const container = document.getElementById("posts");
+
+    posts.forEach(post => {
+      const postEl = document.createElement("article");
+      postEl.className = "post";
+
+      postEl.innerHTML = `
+        <h2>${post.title}</h2>
+        <time>${post.date}</time>
+        <div class="post-content">
+          ${post.content}
+        </div>
+      `;
+
+      container.appendChild(postEl);
+    });
+  </script>
+</body>
+
+</html>
+
