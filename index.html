@@ -100,6 +100,14 @@
     .guide strong {
       color: #a1e5ff;
     }
+    .guide-inquiries {
+      margin-left: 12px;
+      color: #9cf0ff;
+      font-weight: 600;
+    }
+    .guide-email {
+      color: #fcd34d;
+    }
 
     @media (max-width: 900px) {
       .guide {
@@ -128,7 +136,7 @@
     }
 
     img.inline {
-      width: 100%;
+      max-width: 100%;
       height: auto;
       border-radius: 8px;
       margin: 12px 0;
@@ -148,28 +156,37 @@
 
     <section class="guide">
       <p>본 자료는 NeoPicasso 내부 공유용이며, 저작권 있는 콘텐츠 및 미공개 정보가 포함될 수 있으므로 외부 전송·링크 공유는 허가된 경우에만 가능합니다.</p>
-      <p>© Pablo Air. All rights reserved. Inquiries: hwkim@pabloair.com</p>
+      <p>
+        <span class="guide-copyright">© Pablo Air. All rights reserved.</span><span class="guide-inquiries">Inquiries: <span class="guide-email">hwkim@pabloair.com</span></span>
+      </p>
     </section>
   </div>
 
   <script>
     const posts = [
       {
-        title: "첫 번째 글",
-        date: "2025-11-20",
-        content: `
-          <p>진행 중인 내용, 업데이트 내역, 사용법, 향후 로드맵 등을 공유하는 공간입니다.</p>
-        `
-      },
-      
-      {
-        title: "이미지 테스트",
+        title: "#1",
         date: "2025-11-21",
         content: `
           <img src="images/aa.png" alt="결과 화면" class="inline">
-          <p>새로운 기능 데모입니다:</p>
+          <p>PA Tools 는 네오피카소 작업을 서포트하는 기능들로 채워나갈 예정입니다.</p>
         `
-      }
+      },
+      {
+        title: "#2",
+        date: "2025-11-21",
+        content: `
+          <img src="images/ab.png" alt="결과 화면" class="inline">
+          <p>거리 측정 기능을 수정했습니다. 가볍게 만드는 것에만 신경쓰다보니 가시성이 떨어져서 거리 표시하는 그래픽이 잘 보이도록 수정.</p>
+        `
+      },
+      {
+        title: "#3",
+        date: "2025-11-21",
+        content: `
+          <p>PA Tools의 컬러 피커 기능은 왠지 사용 안 하실 것 같아서 삭제했고, path3 파일 시뮬레이션 하는 기능을 좀 더 가볍게 수정했습니다. path3 파일 특성상 무겁게 생성할 수 밖에 없어서 Geometry Node 로 변환해서 불러오는 작업을 시도해봤는데 성공했습니다. 다만 path3 시뮬레이션을 하는 이유가 DSC 작업물 불꽃배치도를 만들기 위한 목적이 가장 커서, 지오메트리 노드 기반으로 불꽃배치도를 새로 개발하기에는 꽤 시간이 걸릴 듯 하여 나중에 필요하면 개발하려고 합니다.</p>
+        `
+      },
     ];
 
     const container = document.getElementById("posts");
