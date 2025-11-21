@@ -70,6 +70,22 @@
       color: #1f2937;
     }
 
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 12px 0;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .image-row img.inline {
+      flex: 0 0 auto;
+      max-width: calc(50% - 6px);
+      height: auto;
+      object-fit: contain;
+    }
+
     .guide {
       position: fixed;
       bottom: 16px;
@@ -100,10 +116,30 @@
     .guide strong {
       color: #a1e5ff;
     }
+    .guide-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
     .guide-inquiries {
-      margin-left: 12px;
       color: #9cf0ff;
       font-weight: 600;
+      display: inline;
+    }
+
+    @media (max-width: 600px) {
+      .guide-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .guide-inquiries {
+        width: 100%;
+        margin-top: 4px;
+      }
     }
     .guide-email {
       color: #fcd34d;
@@ -141,6 +177,7 @@
       border-radius: 8px;
       margin: 12px 0;
       box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
+      display: block;
     }
   </style>
 </head>
@@ -156,8 +193,9 @@
 
     <section class="guide">
       <p>본 자료는 NeoPicasso 내부 공유용이며, 저작권 있는 콘텐츠 및 미공개 정보가 포함될 수 있으므로 외부 전송·링크 공유는 허가된 경우에만 가능합니다.</p>
-      <p>
-        <span class="guide-copyright">© Pablo Air. All rights reserved.</span><span class="guide-inquiries">Inquiries: <span class="guide-email">hwkim@pabloair.com</span></span>
+      <p class="guide-footer">
+        <span class="guide-copyright">© Pablo Air. All rights reserved.</span>
+        <span class="guide-inquiries">Inquiries: <span class="guide-email">hwkim@pabloair.com</span></span>
       </p>
     </section>
   </div>
@@ -176,8 +214,11 @@
         title: "#2",
         date: "2025-11-21",
         content: `
-          <img src="images/ab.png" alt="결과 화면" class="inline">
-          <p>거리 측정 기능을 수정했습니다. 가볍게 만드는 것에만 신경쓰다보니 가시성이 떨어져서 거리 표시하는 그래픽이 잘 보이도록 수정.</p>
+          <div class="image-row">
+            <img src="images/ab.png" alt="결과 화면" class="inline">
+            <img src="images/ac.png" alt="스케치" class="inline">
+          </div>
+          <p>거리 측정 기능을 수정했습니다. 가볍게 만드는 것에만 신경쓰다보니 가시성이 떨어져서 거리 표시하는 그래픽이 마지막엔 점멸없이 유지하도록 수정.</p>
         `
       },
       {
