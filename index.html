@@ -283,14 +283,15 @@
         date: "2025-11-25",
         content: `
           <img src="images/8a.png" alt="결과 화면" class="inline">
-          <p>선택된 노드로 PCA 컬러링 기능을 사용할 수 있게 수정했습니다. 팔레트처럼 색조합을 저장해놨다가 시안작업 할 때 사용해도 괜찮을 것 같습니다.</p>
+          <p>선택된 노드로 PCA 컬러링 기능을 사용할 수 있게 수정했습니다. 팔레트처럼 색 조합을 저장해놨다가 시안작업 할 때 사용해도 괜찮을 것 같습니다.</p>
         `
       },
     ];
 
     const container = document.getElementById("posts");
+    const renderOrder = posts.slice().reverse(); // 최신 포스트부터 보여줌
 
-    posts.forEach(post => {
+    renderOrder.forEach(post => {
       const postEl = document.createElement("article");
       postEl.className = "post";
 
@@ -303,6 +304,10 @@
       `;
 
       container.appendChild(postEl);
+    });
+
+    container.querySelectorAll("img").forEach(img => {
+      img.loading = "lazy"; // 지연 로딩을 통해 처음부터 모든 이미지를 불러오지 않음
     });
   </script>
 </body>
