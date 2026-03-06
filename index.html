@@ -61,8 +61,14 @@
       filter: saturate(1.08) contrast(1.02);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 640px) {
+      #buttonList {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
       .keyword-btn {
+        width: 100%;
         max-width: 100%;
       }
     }
