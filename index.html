@@ -1,18 +1,10 @@
 <!doctype html>
 <html lang="ko">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PabloX NeoPicasso</title>
+  <title>Keyword Button Builder</title>
   <style>
-    :root {
-      color-scheme: light;
-      font-family: "Pretendard", "Segoe UI", system-ui, sans-serif;
-      background-color: #f3f4f6;
-      color: #111827;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -20,394 +12,124 @@
 
     body {
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 32px 16px 200px;
+      font-family: "Pretendard", "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, #ffd6f3 0%, transparent 38%),
+        radial-gradient(circle at 86% 16%, #c9ecff 0%, transparent 34%),
+        radial-gradient(circle at 52% 92%, #fff1b8 0%, transparent 32%),
+        #f7f7ff;
+      color: #0f172a;
+      display: grid;
+      place-items: center;
+      padding: clamp(12px, 3vw, 32px);
     }
 
-    #app {
-      width: min(960px, 100%);
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
-      padding: 32px;
+    .app {
+      width: min(920px, 100%);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid #e8eaff;
+      border-radius: 20px;
+      padding: clamp(14px, 2.5vw, 28px);
     }
 
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 8px;
-      white-space: nowrap;
-    }
-
-    header p {
-      color: #4b5563;
-      font-size: 0.95rem;
-      margin-bottom: 24px;
-    }
-
-    .post {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 18px;
-      background: #fafafa;
-    }
-
-    .post h2 {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-    }
-
-    .post time {
-      font-size: 0.85rem;
-      color: #6b7280;
-      display: block;
-      margin-bottom: 16px;
-    }
-
-    .post-content {
-      line-height: 1.7;
-      color: #1f2937;
-    }
-
-    .image-row {
+    #buttonList {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 12px 0;
-      justify-content: flex-start;
+      gap: 10px;
       align-items: flex-start;
+      justify-content: center;
     }
 
-    .image-row img.inline {
-      flex: 0 0 auto;
-      max-width: calc(50% - 6px);
-      height: auto;
-      object-fit: contain;
+    .keyword-btn {
+      border: 1px solid var(--bd, #9bbcff);
+      background: linear-gradient(135deg, var(--bg1, #fbe8ff) 0%, var(--bg2, #e8f0ff) 100%);
+      color: var(--tx, #1e3a8a);
+      border-radius: 14px;
+      width: auto;
+      min-height: 48px;
+      padding: 12px 16px;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      cursor: default;
+      text-align: center;
+      transition: transform 180ms ease, filter 180ms ease;
     }
 
-    .guide {
-      position: fixed;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(960px, calc(100% - 64px));
-      max-width: 960px;
-      padding: 18px 24px;
-      background: #111827;
-      color: #f9fafb;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      box-shadow: 0 -14px 60px rgba(15, 23, 42, 0.45);
-      z-index: 6;
-      word-break: keep-all;
-      white-space: normal;
-      hyphens: auto;
+    .keyword-btn:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.08) contrast(1.02);
     }
 
-    .guide p {
-      white-space: normal;
-      overflow: visible;
-      text-overflow: clip;
-      word-break: break-word;
-    }
-
-    .guide strong {
-      color: #a1e5ff;
-    }
-    .guide-footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-
-    .guide-inquiries {
-      color: #9cf0ff;
-      font-weight: 600;
-      display: inline;
-    }
-
-    @media (max-width: 600px) {
-      .guide-footer {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 480px) {
+      .keyword-btn {
+        max-width: 100%;
       }
-      .guide-inquiries {
-        width: 100%;
-        margin-top: 4px;
-      }
-    }
-    .guide-email {
-      color: #fcd34d;
-    }
-
-    @media (max-width: 900px) {
-      .guide {
-        width: calc(100% - 32px);
-        bottom: 8px;
-        padding: 16px 18px;
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-    }
-
-    @media (max-width: 420px) {
-      header h1 {
-        font-size: 1.6rem;
-        letter-spacing: -0.02em;
-      }
-    }
-
-    @media (max-width: 375px) {
-      .guide {
-        width: calc(100% - 20px);
-        padding: 14px 16px;
-        font-size: 0.85rem;
-        bottom: 6px;
-      }
-    }
-
-    img.inline {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 12px 0;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.16);
-      display: block;
     }
   </style>
 </head>
-
 <body>
-  <div id="app">
-    <header>
-      <h1>NeoPicasso&nbsp;개발&nbsp;기록</h1>
-      
-    </header>
-
-    <main id="posts"></main>
-
-    <section class="guide">
-      <p>본 자료는 NeoPicasso 내부 공유용이며, 저작권 있는 콘텐츠 및 미공개 정보가 포함될 수 있으므로 외부 전송·링크 공유는 허가된 경우에만 가능합니다.</p>
-      <p class="guide-footer">
-        <span class="guide-copyright">© Pablo Air. All rights reserved.</span>
-        <span class="guide-inquiries">Inquiries: <span class="guide-email">hwkim@pabloair.com</span></span>
-      </p>
-    </section>
-  </div>
+  <main class="app">
+    <section id="buttonList" aria-label="생성된 단어 버튼 목록"></section>
+  </main>
 
   <script>
-    const posts = [
-      {
-        title: "#1",
-        date: "2025-11-21",
-        content: `
-          <img src="images/aa.png" alt="결과 화면" class="inline">
-          <p>PA Tools 는 네오피카소 작업을 서포트하는 툴로 대체할 예정입니다.</p>
-        `
-      },
-      {
-        title: "#2",
-        date: "2025-11-21",
-        content: `
-          <div class="image-row">
-            <img src="images/ab.png" alt="결과 화면" class="inline">
-            <img src="images/ac.png" alt="스케치" class="inline">
-          </div>
-          <p>거리 측정 기능을 수정했습니다. 가볍게 작동하는 것만 고려하다보니 가시성이 떨어져서, 
-            움직임이 없을 때는 거리 표시 그래픽이 점멸하지 않고 유지하도록 수정했습니다.</p>
-        `
-      },
-      {
-        title: "#3",
-        date: "2025-11-21",
-        content: `
-          <p>PA Tools의 컬러 피커 기능은 왠지 사용 안 하실 것 같아서 삭제했고, path3 파일 시뮬레이션 하는 기능을 좀 더 가볍게 수정했습니다. 
-            path3 파일 특성상 무겁게 생성할 수 밖에 없어서 Geometry Node 로 변환해서 불러오는 작업을 시도해봤는데 성공은 했습니다. 
-            다만 path3 시뮬레이션 하는 이유가 DSC 작업물 불꽃배치도를 만들기 위한 목적이 크다보니, 
-            지오메트리 노드 기반으로 불꽃배치도를 새로 개발하기에는 꽤 시간이 걸릴 듯 하여 나중에 필요하면 개발하려고 합니다.</p>
-        `
-      },
-      {
-        title: "#4",
-        date: "2025-11-21",
-        content: `
-          <img src="images/ad.png" alt="결과 화면" class="inline">
-          <p>네오피카소의 follow line color 기능이 컬러링 target mesh 제작에 유용한데, 
-            레이어 작업을 거쳐야하므로 독립적으로 편하게 사용하기 위해 애드온으로 추출했습니다. 추후 PA Tools로 통합 예정</p>
-        `
-      },
-      {
-        title: "#5",
-        date: "2025-11-21",
-        content: `
-          <div class="image-row">
-            <img src="images/5a.png" alt="결과 화면" class="inline">
-            <img src="images/5b.png" alt="결과 화면" class="inline">
-            <img src="images/5c.png" alt="결과 화면" class="inline">
-          </div>
-          <p>자체적으로 개발한 PCA 컬러링의 짧은 축 기능이 일부 3d 모델에서 정상 적용되지 않는 문제가 있어 알고리즘을 수정했고, 
-            이것도 추후에 버텍스 속도 검사기능과 묶어서 PA Tools로 통합 예정입니다.</p>
-        `
-      },
-      {
-        title: "#6",
-        date: "2025-11-24",
-        content: `
-          <img src="images/6.gif" alt="PCA 컬러링 데모 재생" class="inline">
-          <p>획순 점등 테스트를 노드로 못해봐서 이번에 해봤는데, 조금 난해합니다.</p>
+    const buttonList = document.getElementById("buttonList");
+    const keywordText = "PA tools 제작, follow line color 코드추출, PCA 컬러링 기능개발, 멀티플 믹스노드 기획, 에셋 컬러링 구조기획";
+    const keywords = keywordText
+      .split(",")
+      .map((word) => word.trim())
+      .filter(Boolean);
+    // 여기 테마명만 바꾸면 전체 분위기가 바뀝니다.
+    const themeName = "vivid-pop";
+    const themePresets = {
+      "vivid-pop": [
+        { bg1: "#FFE3F5", bg2: "#F4D9FF", bd: "#E9B8FF", tx: "#7A1FA2" },
+        { bg1: "#DFF4FF", bg2: "#DCEBFF", bd: "#AACDFF", tx: "#0F4FA8" },
+        { bg1: "#E4FFE9", bg2: "#DFFFEF", bd: "#ACE8BE", tx: "#1B7A38" },
+        { bg1: "#FFF1D9", bg2: "#FFE5A8", bd: "#FFC870", tx: "#9A4A00" },
+        { bg1: "#FFE1E7", bg2: "#FFD5DE", bd: "#FFACBB", tx: "#B4234D" },
+        { bg1: "#E8FFF9", bg2: "#D8FFFB", bd: "#9BEFE5", tx: "#0D7B71" }
+      ],
+      "neon-soft": [
+        { bg1: "#F3DAFF", bg2: "#EEC9FF", bd: "#DE9DFF", tx: "#5F1E8D" },
+        { bg1: "#D6F3FF", bg2: "#BCE8FF", bd: "#87D6FF", tx: "#0A4D85" },
+        { bg1: "#E1FFD8", bg2: "#CCFFC0", bd: "#97F08E", tx: "#246C1E" },
+        { bg1: "#FFF6C7", bg2: "#FFEB9A", bd: "#FFDC57", tx: "#8A5A00" },
+        { bg1: "#FFE2F0", bg2: "#FFD3E7", bd: "#FFACD3", tx: "#90285D" },
+        { bg1: "#E2F0FF", bg2: "#D0E5FF", bd: "#A3C8FF", tx: "#244F8C" }
+      ],
+      "festival": [
+        { bg1: "#FFD7D7", bg2: "#FFC6A8", bd: "#FFA07A", tx: "#8F2E00" },
+        { bg1: "#FFF2C9", bg2: "#FFE48E", bd: "#FFC85E", tx: "#8A4D00" },
+        { bg1: "#D8FFD8", bg2: "#B5F2C9", bd: "#7ED9A4", tx: "#1F6B4B" },
+        { bg1: "#D7F1FF", bg2: "#BCE5FF", bd: "#86CBFF", tx: "#12508B" },
+        { bg1: "#E6DCFF", bg2: "#D9C7FF", bd: "#B9A0FF", tx: "#4B2EA3" },
+        { bg1: "#FFDDF9", bg2: "#FBC8F2", bd: "#F49EE4", tx: "#8E2872" }
+      ]
+    };
+    const palettes = themePresets[themeName] || themePresets["vivid-pop"];
 
-          <ul>
-            <li>텍스트마다 버텍스 그룹 설정</li>
-            <li>텍스트마다 팔로우라인 기능으로 라인 설정</li>
-            <li>텍스트마다 팔로우라인 기능으로 메시 설정</li>
-            <li>노드 복사, 방향/애니메이션 등 설정 후 병합</li>
-          </ul>
-          <p>위 4가지 공정을 효율적으로 반복해야 작업속도가 어느정도 나올 것 같다는 생각이 들었습니다. 
-            rotate vector 값을 조정하면 조금 다른 느낌으로 텍스트를 점등할 수 있을 것 같습니다. </p>
-        `
-      },
-      {
-        title: "#7",
-        date: "2025-11-24",
-        content: `
-          <p>PADSS 초기에 불꽃신호는 15/240으로 알고 있었으나 예제 코드였고, 결과적으로는 A단자 0xC1(193), B단자 0xC3(195)로 출력되어야 함.  </p>
-        `
-      },
-      {
-        title: "#8",
-        date: "2025-11-25",
-        content: `
-          <img src="images/8a.png" alt="결과 화면" class="inline">
-          <p>원하는 ColorRamp를 선택해서 PCA 컬러링 기능을 사용할 수 있게 수정했습니다. 팔레트처럼 색 조합을 저장해놨다가 시안작업 할 때 사용해도 괜찮을 것 같습니다.</p>
-        `
-      },
-      {
-        title: "#9",
-        date: "2025-11-25",
-        content: `
-          <div class="image-row">
-            <img src="images/9a.png" alt="결과 화면" class="inline">
-            <img src="images/9b.png" alt="결과 화면" class="inline">
-          </div>
-          <p>효과노드를 모듈화 하더라도 저렇게 거미줄처럼 연결되어 있는 상태에서는 작업이나 수정을 하기가 어렵습니다.
-            블렌더 내장 GUI를 활용하여 간단하게 사용할 수 있는 방법을 계획중인데, 단계적인 접근이 필요할 것 같습니다. 
-            우선 효과를 에셋 브라우저에 등록하고 불러와서 필요한 파라미터만 조정해서 쓸 수 있는 것부터 실험해보고 있습니다. </p>
-        `
-      },
-      {
-        title: "#10",
-        date: "2025-11-26",
-        content: `
-          <p>계약 성과물 전체적으로 점검 </p>
-        `
-      },
-      {
-        title: "#11",
-        date: "2025-11-27",
-        content: `
-          <div class="image-row">
-            <img src="images/11a.png" alt="결과 화면" class="inline">
-            <img src="images/11b.png" alt="결과 화면" class="inline">
-            <img src="images/11c.png" alt="결과 화면" class="inline">
-          </div>
-          <p>임시로 multiple mix 노드를 만들어놨습니다. 효과가 늘어날때마다 거미줄처럼 연결하는 것보다는 편리한 것 같고, 
-            효과 그룹도 몇 개 만들어놨는데, 아무데나 편하게 연결해서 쓸 수 있습니다.</p>
-        `
-      },
-      {
-        title: "#12",
-        date: "2025-11-28",
-        content: `
-          <div class="image-row">
-            <img src="images/12a.png" alt="결과 화면" class="inline">
-            <img src="images/12b.png" alt="결과 화면" class="inline">
-            <img src="images/12c.png" alt="결과 화면" class="inline">
-          </div>
-          <p>Image / Video 노드는 Single User를 적용해서 사용하면 되는데, 실수로 적용을 안 하는 경우가 있을 수 있습니다.
-            그럼 효과가 공유되어 이전 작업에 영향을 미칩니다. 그래서 Single User 적용이 할 필요없게 버튼화 했습니다. + 효과그룹 썸네일 추가  </p>
-        `
-      },
-      {
-        title: "#13",
-        date: "2025-12-01",
-        content: `
-          <div class="image-row">
-            <img src="images/13a.png" alt="결과 화면" class="inline">
-          </div>
-          <p>UI 관련 코드 파악 및 json 추출 테스트(Scene 학습)  </p>
-        `
-      },
-      {
-        title: "#14",
-        date: "2025-12-02",
-        content: `
-          <div class="image-row">
-            <img src="images/14a.png" alt="결과 화면" class="inline">
-          </div>
-          <p>소켓이 있는 노드는 저렇게 다 외부 인풋으로 뽑아내서 위젯화 할 수 있는데, 편한 것 같습니다. 
-            근데 컬러램프나 매직 텍스처의 뎁스처럼 소켓이 없는 기능은 외부로 꺼낼 수 없어서 그룹 내부로 들어가 값을 수정해야하는데, 
-            블렌더 노드 시스템의 한계라서 조금 아쉬운 것 같습니다. (4.5.3 버전 기준)
-            </p>
-        `
-      },
-      {
-        title: "#15",
-        date: "2025-12-04",
-        content: `
-          <p>path calculator의 enable 타이밍을 분리하거나 특이연출, 분리비행 등 응용 작업을 할 수 있는지 분석</p>
-        `
-      },
-      {
-        title: "#16",
-        date: "2025-12-05",
-        content: `
-          <p>드론쇼 템플릿 및 학습용 json 추출 작업</p>
-        `
-      },
-      {
-        title: "#17",
-        date: "2025-12-08",
-        content: `
-          <p>교육 준비</p>
-        `
-      },
-      {
-        title: "#18",
-        date: "2025-12-15",
-        content: `
-          <p>검수 준비</p>
-        `
-      },
-    ];
+    function createKeywordButton(text, index) {
+      const value = text.trim();
+      if (!value) {
+        return;
+      }
 
-    const container = document.getElementById("posts");
-    const renderOrder = posts.slice().reverse(); // 최신 포스트부터 보여줌
+      const button = document.createElement("button");
+      const color = palettes[index % palettes.length];
+      button.type = "button";
+      button.className = "keyword-btn";
+      button.textContent = value;
+      button.style.setProperty("--bg1", color.bg1);
+      button.style.setProperty("--bg2", color.bg2);
+      button.style.setProperty("--bd", color.bd);
+      button.style.setProperty("--tx", color.tx);
+      buttonList.appendChild(button);
+    }
 
-    renderOrder.forEach(post => {
-      const postEl = document.createElement("article");
-      postEl.className = "post";
-
-      postEl.innerHTML = `
-        <h2>${post.title}</h2>
-        <time>${post.date}</time>
-        <div class="post-content">
-          ${post.content}
-        </div>
-      `;
-
-      container.appendChild(postEl);
-    });
-
-    container.querySelectorAll("img").forEach(img => {
-      img.loading = "lazy"; // 지연 로딩을 통해 처음부터 모든 이미지를 불러오지 않음
-    });
+    keywords.forEach((word, index) => createKeywordButton(word, index));
   </script>
 </body>
-
 </html>
 
