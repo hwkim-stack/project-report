@@ -71,21 +71,6 @@
   </main>
 
   <script>
-    /* ─────────────────────────────────────────────
-       ✏️  VERSION을 수정할 때마다 1씩 올려주세요
-       이것만 하면 캐시 문제 완전 해결됩니다
-       ───────────────────────────────────────────── */
-    const VERSION = 3;
-
-    // 버전이 바뀌면 자동으로 강제 새로고침
-    const lastVer = localStorage.getItem("app_version");
-    if (lastVer && lastVer !== String(VERSION)) {
-      localStorage.setItem("app_version", VERSION);
-      location.reload(true);          // 서버에서 강제로 다시 받아옴
-    } else {
-      localStorage.setItem("app_version", VERSION);
-    }
-
     /* =============================================
        ✏️  여기만 수정하세요!
        • 빈 줄로 항목 구분
@@ -137,8 +122,12 @@ PADSS 시나리오 파일
 .scene 파일 변환 및 추출 기능 개발, 테스트용 PADSS path viewer 개발
 
 path3 export 수정
-트랜지션의 길이를 직선거리 예상치로 적용되는 부분을 transition.frames.length 기준으로 정확한 트랜지션 길이를 가지도록 수정
+트랜지션의 길이를 '직선거리 예상치로 적용되는 부분'을 transition.frames.length 기준으로 정확한 트랜지션 길이를 가지도록 수정
 
+웹 버전) 불꽃 rematch 자동배정 기능 수정
+기존의 guided rematch 입력값에 identity guide 추가
+rematch 소스의 탐색 폭을 넓혀 실패 없앰
+rematch 대상 드론만 inverseAssignment 적용하여 장면3부터 발생하는 슬롯 중복/빈 슬롯 방지
 `;
 
     const themeName = "festival";
