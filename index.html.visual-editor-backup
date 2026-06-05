@@ -376,7 +376,7 @@
       </div>
       <div class="version-control">
         <label for="versionSelect">릴리스 버전 선택</label>
-        <select id="versionSelect"><option value="1.0.0" selected="">v1.0.0</option><option value="1.0.0">v1.0.0</option><option value="1.0.0">v1.0.0</option><option value="1.0.0">v1.0.0</option></select>
+        <select id="versionSelect"><option value="1.0.0" selected="">v1.0.0</option><option value="1.0.0">v1.0.0</option><option value="1.0.0">v1.0.0</option></select>
       </div>
     </div>
   </header>
@@ -398,7 +398,7 @@
   <main class="shell content-grid">
     <aside class="side-nav" aria-label="패치노트 섹션">
       <p class="side-nav-title">On this release</p>
-      <nav id="sideNav"><a href="#timeline-blender" class="active">타임라인·Blender 연동</a><a href="#store">Store</a><a href="#export">Export</a><a href="#viewport-layout">뷰포트·불꽃 배치도</a><a href="#web-editor">Web Editor</a><a href="#production">연출 기능</a></nav>
+      <nav id="sideNav"><a href="#timeline-blender" class="">타임라인·Blender 연동</a><a href="#store" class="">Store</a><a href="#export" class="">Export</a><a href="#viewport-layout" class="active">뷰포트·불꽃 배치도</a><a href="#web-editor" class="">Web Editor</a><a href="#production">연출 기능</a></nav>
     </aside>
     <article id="releaseContent">
         <section class="release-section" id="timeline-blender">
@@ -706,7 +706,7 @@
                     <h3>불꽃 배치도 Grid 기본값을 0.1로 변경</h3>
                     <span class="tag tag-improve">개선</span>
                   </div>
-                  <p>지상 배치를 0.75 등으로 설정할 때 별도로 Grid 값을 수정하지 않아도 됩니다.</p>
+                  <p>지상 배치를 0.75로 설정할 때 별도로 Grid 값을 수정하지 않아도 됩니다.</p>
                   
                   
                   
@@ -731,10 +731,10 @@
                 <span class="change-index">14</span>
                 <div>
                   <div class="change-title-row">
-                    <h3>Desktop App 내 접속</h3>
+                    <h3>Desktop App 내 Web Editor Embed</h3>
                     <span class="tag tag-improve">개선</span>
                   </div>
-                  <p>웹 버전은 주소로도 접속할 수 있으나 iframe에 Embed된 Web Editor에서 작업을 부탁드립니다.</p>
+                  <p>iframe에 Embed된 Web Editor에서만 작업을 부탁드립니다.</p>
                   
                   
                   
@@ -794,7 +794,7 @@
                     <h3>Google Maps 서버 재연결</h3>
                     <span class="tag tag-improve">개선</span>
                   </div>
-                  <p>작동하지 않던 Google Maps 기능을 회사 계정의 새 서버에 연결했습니다.</p>
+                  <p>Google Maps 서버를 회사 계정으로 새로 연결했습니다.</p>
                   
                   
                   
@@ -871,8 +871,8 @@
                     <h3>이륙 대형 Coloring 작업 간소화</h3>
                     <span class="tag tag-improve">개선</span>
                   </div>
-                  <p>Drone 카드에서 이륙 대형 편집을 누르면 TakeOff_Formation_Coloring Collection과 Mesh가 생성되고 Color Manager가 자동 설정됩니다. 이륙 대형의 Color, Animation, 지상 배치 변경은 모두&nbsp;<font color="#3730a3"><span style="font-size: 12px; background-color: rgb(247, 247, 255);"><b>TakeOff_Formation_Coloring Mesh</b></span></font>에서 진행합니다.</p>
-                  <aside class="note"><p>지상 배치&nbsp;<b>변경 후</b>&nbsp;<strong>이륙 대형 동기화</strong>를 누르면 DroneMeshObject와 DroneMeshObject_animation이 같은 모양으로 동기화 됩니다.</p><p>이륙 대형 Animation은 <b>Hook을 직접 생성하지 않고</b>, TakeOff_Formation_Coloring에서 Vertex를 선택한 뒤 <strong>Hook 동기화 </strong>기능을 사용하면</p><p>두 Mesh에 동일한 Hook이 연결·생성됩니다.</p></aside>
+                  <p>Drone 카드에서 이륙 대형 편집을 누르면 TakeOff_Formation_Coloring Collection과 Mesh가 생성되고 Color Manager가 자동 설정됩니다. 이륙 대형의 Color, Animation, 지상 배치 변경은 모두 TakeOff_Formation_Coloring Mesh에서 진행합니다.</p>
+                  <aside class="note"><p>지상 배치가 변경되면 <strong>이륙 대형 동기화</strong>를 눌러 DroneMeshObject와 DroneMeshObject_animation을 같은 모양으로 동기화해야 합니다.</p><p>이륙 대형 Animation은 Hook을 직접 생성하지 않고, TakeOff_Formation_Coloring에서 Vertex를 선택한 뒤 <strong>Hook 동기화</strong>를 사용합니다. 두 Mesh에 동일한 Hook이 연결·생성됩니다.</p></aside>
                   
                   
                   
@@ -961,7 +961,280 @@
     </div>
   </div>
 
-  
+  <script>
+    /*
+      새 버전 추가 방법:
+      releases 배열에 기존 릴리스와 같은 형태의 객체를 추가합니다.
+      type은 new, improve, fix, info 중 하나를 사용합니다.
+    */
+    const releases = [
+      {
+        version: "1.0.0",
+        previousVersion: "0.9.2",
+        summary: "데스크톱 앱의 타임라인과 Blender 연동을 보강하고, 새로운 Store와 Export 흐름, Web Editor 및 연출 기능을 개선했습니다.",
+        scopes: ["Desktop App", "Web App"],
+        sections: [
+          {
+            id: "timeline-blender",
+            title: "타임라인·Blender 연동",
+            description: "카드 편집과 경로 계산, Geometry Nodes 연동의 안정성을 개선했습니다.",
+            items: [
+              { number: 1, type: "improve", title: "카드 길이 변경 시 연관 데이터 이동 보강", body: "카드 길이가 변경될 때 나머지 카드 위치와 Hook 키프레임 등 하위 컬렉션 데이터가 함께 이동하도록 Shift 기능을 보강했습니다." },
+              { number: 2, type: "fix", title: "Store에서 path3를 불러올 때 RGB 값이 비어 있던 문제 수정" },
+              { number: 3, type: "fix", title: "경로 계산 시 path3 애니메이션이 Shift되지 않던 문제 수정" },
+              { number: 4, type: "fix", title: "Drone 줄기와 add2 줄기 작업 시 스위치 키프레임이 섞이던 문제 수정", body: "Drone 줄기와 add2 줄기를 번갈아 작업할 때 DroneMeshObject의 스위치 키프레임이 서로 섞이던 문제를 해결했습니다." },
+              { number: 5, type: "improve", title: "RGB 비율 설정을 Export 단계로 이동", body: "기존 RGB 비율 0.7 노드를 삭제하고, Export 단계에서 비율을 설정하도록 변경했습니다. 기본값은 70%입니다." },
+              {
+                number: 6,
+                type: "improve",
+                title: "이동 구간에서도 일관되도록 Twinkle 노드 개선",
+                body: "드론이 움직이는 구간에서 Twinkle 효과가 과하게 반짝이던 문제를 개선해 정지·이동 상태 모두에서 일관되게 표시됩니다.",
+                note: "<p>Geometry Nodes에서 <strong>Twinkle</strong>을 검색한 뒤, <strong>Group에 있는 Twinkle</strong>을 사용해야 합니다. Coloring의 Twinkle은 Asset Library 노드이므로 동일하게 동작하지 않습니다.</p><p>향후 Asset Library 없이 XneoPicasso에서 효과를 직접 선택할 수 있도록 개선할 예정입니다.</p>",
+                images: [
+                  { src: "assets/twinkle.png", alt: "Geometry Nodes의 Group Twinkle 선택 화면", caption: "Group에 있는 Twinkle 노드 사용" }
+                ]
+              },
+              { number: 25, type: "fix", title: "장면 교체 시 노드 연결 누락 현상 수정", body: "장면을 교체할 때 일부 노드 연결이 누락되던 문제를 수정했습니다." }
+            ]
+          },
+          {
+            id: "store",
+            title: "Store",
+            description: "새로운 Store 서버와 안전한 Import 흐름을 제공합니다.",
+            items: [
+              {
+                number: 7,
+                type: "new",
+                title: "별도 장면 Store 구축",
+                body: "기존 Store 장면 업로드의 권한 문제를 해결하기 위해 회사 계정으로 새로운 서버를 구축했습니다. <strong>장면은 Store(test)를 통해 업로드할 수 있습니다.</strong> Store(test)의 Upload Scene으로 장면을 등록하고, Hook 키프레임이 포함된 애니메이션은 장면 카드의 path3 업로드로 등록할 수 있습니다.",
+                note: "<p><strong>Local Scene Upload</strong>는 업로드 없이 빠르게 Formation 작업을 진행할 때 사용할 수 있습니다.</p><p>처음 한 번 로그인해야 하며, 이후 로그인 상태가 유지됩니다. <strong>@pabloair.com</strong> 계정만 사용할 수 있습니다. 한 달 동안 문제가 없으면 기존 Store 탭을 삭제하고 Store(test)의 이름을 변경할 예정입니다.</p>",
+                warning: "<strong>※ 참고</strong>기존 Store에 등록된 장면의 최대 RGB 값은 0.7입니다. 이를 다시 70%로 Export하면 RGB 값이 0.5 이하로 낮아질 수 있습니다.",
+                images: [
+                  { src: "assets/store(test).png", alt: "Store(test) 탭 화면", caption: "장면 업로드는 Store(test)에서 진행" },
+                  { src: "assets/store(test)-login.png", alt: "Store(test) 로그인 화면", caption: "Store(test) 최초 로그인" },
+                  { src: "assets/upload-scene.png", alt: "Store(test)의 Upload Scene 화면", caption: "Upload Scene으로 장면 등록" },
+                  { src: "assets/path3-upload.png", alt: "장면 카드의 path3 업로드 화면", caption: "Hook 애니메이션 path3 업로드" }
+                ]
+              },
+              { number: 8, type: "fix", title: "path3 Import 중 중복 조작 방지", body: "Store에서 path3를 Import하는 동안 블로킹 오버레이를 표시해 완료 전 다른 작업으로 인해 문제가 발생하지 않도록 개선했습니다." }
+            ]
+          },
+          {
+            id: "export",
+            title: "Export",
+            description: "출력 시점에 필요한 설정을 한곳에서 결정할 수 있도록 정리했습니다.",
+            items: [
+              { number: 9, type: "improve", title: "FPS 설정을 Export 단계로 이동", body: "Transition 카드에 있던 FPS 설정을 삭제하고 Export 시 선택하도록 변경했습니다." },
+              { number: 10, type: "improve", title: "LED 비율 설정을 Export 단계로 이동", body: "Color Manager의 LED 비율 노드를 삭제하고 Export 시 비율을 선택하도록 변경했습니다. 기본값은 70%입니다." },
+              { number: 11, type: "improve", title: "불꽃 신호·분리 비행 Modal 옵션 정리", body: "사용하지 않거나 중복되는 옵션을 정리해 Export 흐름을 간결하게 만들었습니다." },
+              {
+                number: 26,
+                type: "new",
+                title: "장면별 패스 추출 옵션 추가",
+                body: "Export 옵션에서 <strong>Scene Only</strong>를 체크하면 패스를 추출할 장면을 선택할 수 있습니다.",
+                imageLayout: "compact",
+                images: [
+                  { src: "assets/scene-export.png", alt: "Scene Only를 이용한 장면별 패스 추출 옵션 화면", caption: "Scene Only 체크 후 추출할 장면 선택" }
+                ]
+              }
+            ]
+          },
+          {
+            id: "viewport-layout",
+            title: "뷰포트·불꽃 배치도",
+            description: "Blender 뷰포트와 불꽃 배치도의 기본 작업 환경을 개선했습니다.",
+            items: [
+              { number: 12, type: "new", title: "Bloom 자동 설정 버튼 추가", body: "Desktop App 상단에 Bloom 버튼을 추가했습니다. Blender 5.1 기준으로 Bloom Compositor가 자동 설정됩니다." },
+              { number: 13, type: "improve", title: "불꽃 배치도 Grid 기본값을 0.1로 변경", body: "지상 배치를 0.75로 설정할 때 별도로 Grid 값을 수정하지 않아도 됩니다." }
+            ]
+          },
+          {
+            id: "web-editor",
+            title: "Web Editor",
+            description: "시연 목적의 Web Editor 연결과 외부 서비스 구성을 갱신했습니다.",
+            items: [
+              { number: 14, type: "improve", title: "Desktop App 내 Web Editor Embed 지원", body: "iframe에 Embed된 Web Editor에서만 작업을 부탁드립니다." },
+              { number: 15, type: "new", title: "Web 최단 경로 계산 시 로컬 ORCA 지원" },
+              { number: 16, type: "fix", title: "AI Generation 서버 재연결", body: "작동하지 않던 AI Generation 기능을 회사 계정의 새 서버에 연결했습니다.", note: "<p>드론 1,000대 기준 장면 1개 생성 시 약 100원의 비용이 발생합니다.</p>" },
+              { number: 17, type: "improve", title: "시연용 AI 모델 변경", body: "지원이 종료된 gemini-2.0-flash-exp를 gemini-2.5-flash-image로 교체했습니다." },
+              { number: 18, type: "improve", title: "Google Maps 서버 재연결", body: "Google Maps 서버를 회사 계정으로 새로 연결했습니다." }
+            ]
+          },
+          {
+            id: "production",
+            title: "연출 기능",
+            description: "불꽃 신호와 이륙 대형, 장면 식별 등 실제 연출 작업 흐름을 강화했습니다.",
+            items: [
+              {
+                number: 19,
+                type: "new",
+                title: "줄기 시스템에 불꽃 신호 최적화 기능 추가",
+                body: "기존 불꽃 신호 최적화 기능을 줄기 시스템에 이식했습니다.",
+                note: "<p>현재는 <strong>Test</strong> 버튼으로 사용해 주세요. 한 달 동안 문제가 없으면 기존 불꽃 신호 최적화 버튼을 삭제할 예정입니다.</p>",
+                image: { src: "assets/firework-signal-optimization.png", alt: "줄기 시스템의 불꽃 신호 최적화 기능 화면", caption: "불꽃 신호 최적화 기능" }
+              },
+              { number: 20, type: "fix", title: "불꽃 배치도 PDF 출력 시 모양이 달라지던 문제 수정" },
+              { number: 21, type: "new", title: "ORCA 자동 복구 지원", body: "이제 Restore Transitions 기능을 사용하지 않아도 경로가 자동으로 복구됩니다." },
+              {
+                number: 22,
+                type: "improve",
+                title: "이륙 대형 Coloring 작업 간소화",
+                body: "Drone 카드에서 이륙 대형 편집을 누르면 TakeOff_Formation_Coloring Collection과 Mesh가 생성되고 Color Manager가 자동 설정됩니다. 이륙 대형의 Color, Animation, 지상 배치 변경은 모두 TakeOff_Formation_Coloring Mesh에서 진행합니다.",
+                note: "<p>지상 배치가 변경되면 <strong>이륙 대형 동기화</strong>를 눌러 DroneMeshObject와 DroneMeshObject_animation을 같은 모양으로 동기화해야 합니다.</p><p>이륙 대형 Animation은 Hook을 직접 생성하지 않고, TakeOff_Formation_Coloring에서 Vertex를 선택한 뒤 <strong>Hook 동기화</strong>를 사용합니다. 두 Mesh에 동일한 Hook이 연결·생성됩니다.</p>",
+                images: [
+                  { src: "assets/takeoff-formation.png", alt: "이륙 대형 Coloring 작업 화면", caption: "이륙 대형 Coloring 작업" }
+                ]
+              },
+              {
+                number: 23,
+                type: "new",
+                title: "장면 카드 이름 식별 기능 추가",
+                body: "장면 카드 이름 영역을 선택해 이름을 입력한 뒤 Enter로 편집할 수 있습니다. 편집한 이름은 Blender에 생성되는 분홍색 Collection에서 식별할 수 있습니다.",
+                note: "<p>Blender 이름 자체를 변경하면 수정 범위가 커지기 때문에 현재는 Collection 식별 방식으로 제공합니다.</p>",
+                images: [
+                  { src: "assets/rename.png", alt: "장면 카드 이름 편집 화면", caption: "장면 카드 이름 편집" },
+                  { src: "assets/collection.png", alt: "Blender Collection에서 장면 이름을 식별하는 화면", caption: "Collection에서 장면 이름 식별" }
+                ]
+              },
+              { number: 24, type: "new", title: "PCA Coloring을 XneoPicasso에 병합", body: "PCA Coloring은 26_socket_server_addon에 포함되어 있습니다." },
+              {
+                number: 27,
+                type: "new",
+                title: "불꽃 신호 부분·전체 삭제 기능 추가",
+                body: "<strong>버텍스 선택 삭제</strong>는 선택한 버텍스에 적용된 불꽃 신호만 삭제합니다. <strong>전체 삭제</strong>는 해당 카드에 적용된 모든 불꽃 신호를 일괄 삭제합니다.",
+                warning: "<strong>※ 참고</strong>불꽃 신호 최적화 이후 불꽃을 수정한 경우에는 불꽃 신호 최적화를 다시 수행해야 합니다."
+              }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const typeLabels = { new: "신규", improve: "개선", fix: "수정", info: "안내" };
+    const versionSelect = document.getElementById("versionSelect");
+    const hero = document.getElementById("releaseHero");
+    const content = document.getElementById("releaseContent");
+    const sideNav = document.getElementById("sideNav");
+    const mobileNav = document.getElementById("mobileNav");
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    let observer;
+
+    function itemCount(release) {
+      return release.sections.reduce((total, section) => total + section.items.length, 0);
+    }
+
+    function renderRelease(version) {
+      const release = releases.find(item => item.version === version);
+      if (!release) {
+        content.innerHTML = '<p class="empty-state">선택한 릴리스를 찾을 수 없습니다.</p>';
+        return;
+      }
+
+      hero.innerHTML = `
+        <span class="eyebrow">Product update</span>
+        <h1>XneoPicasso ${release.version}</h1>
+        <p class="hero-copy">${release.summary}</p>
+        <div class="release-facts">
+          <span class="fact">Previous <strong>${release.previousVersion}</strong></span>
+          <span class="fact">Changes <strong>${itemCount(release)}</strong></span>
+          ${release.scopes.map(scope => `<span class="fact">${scope}</span>`).join("")}
+        </div>
+      `;
+
+      const navMarkup = release.sections.map(section => `<a href="#${section.id}">${section.title}</a>`).join("");
+      sideNav.innerHTML = navMarkup;
+      mobileNav.innerHTML = navMarkup;
+
+      content.innerHTML = release.sections.map((section, sectionIndex) => `
+        <section class="release-section" id="${section.id}">
+          <header class="section-head">
+            <span class="section-number">${String(sectionIndex + 1).padStart(2, "0")}</span>
+            <div>
+              <h2>${section.title}</h2>
+              <p>${section.description}</p>
+            </div>
+          </header>
+          <div class="change-list">
+            ${section.items.map(item => `
+              <section class="change">
+                <span class="change-index">${String(item.number).padStart(2, "0")}</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>${item.title}</h3>
+                    <span class="tag tag-${item.type}">${typeLabels[item.type]}</span>
+                  </div>
+                  ${item.body ? `<p>${item.body}</p>` : ""}
+                  ${item.note ? `<aside class="note">${item.note}</aside>` : ""}
+                  ${item.warning ? `<aside class="warning-note">${item.warning}</aside>` : ""}
+                  ${item.image ? `
+                    <button class="change-image" type="button" data-image="${item.image.src}" data-alt="${item.image.alt}">
+                      <img src="${item.image.src}" alt="${item.image.alt}">
+                      <span class="image-caption">${item.image.caption} · 클릭하여 확대</span>
+                    </button>` : ""}
+                  ${item.images ? `
+                    <div class="image-gallery${item.imageLayout === "compact" ? " image-gallery-compact" : ""}">
+                      ${item.images.map(image => `
+                        <button class="change-image" type="button" data-image="${image.src}" data-alt="${image.alt}">
+                          <img src="${image.src}" alt="${image.alt}">
+                          <span class="image-caption">${image.caption} · 클릭하여 확대</span>
+                        </button>
+                      `).join("")}
+                    </div>` : ""}
+                </div>
+              </section>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
+
+      bindImageButtons();
+      observeSections();
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    function bindImageButtons() {
+      document.querySelectorAll(".change-image").forEach(button => {
+        button.addEventListener("click", () => {
+          modalImage.src = button.dataset.image;
+          modalImage.alt = button.dataset.alt;
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+          modal.querySelector(".modal-close").focus();
+        });
+      });
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modalImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    function observeSections() {
+      if (observer) observer.disconnect();
+      const navLinks = [...sideNav.querySelectorAll("a")];
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach(link => link.classList.toggle("active", link.hash === `#${entry.target.id}`));
+        });
+      }, { rootMargin: "-25% 0px -65% 0px" });
+      document.querySelectorAll(".release-section").forEach(section => observer.observe(section));
+    }
+
+    releases.forEach(release => {
+      const option = document.createElement("option");
+      option.value = release.version;
+      option.textContent = `v${release.version}`;
+      versionSelect.appendChild(option);
+    });
+    versionSelect.addEventListener("change", event => renderRelease(event.target.value));
+    modal.querySelector(".modal-close").addEventListener("click", closeModal);
+    modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+    document.addEventListener("keydown", event => { if (event.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+    renderRelease(releases[0].version);
+  </script>
 
 
 </body></html>
