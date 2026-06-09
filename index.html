@@ -356,10 +356,10 @@
     <div class="shell hero-inner" id="releaseHero">
         <span class="eyebrow">Release v1.0.0</span>
         <h1>XneoPicasso 1.0.0</h1>
-        <p class="hero-copy">데스크톱 앱의 타임라인과 Blender 연동을 보강하고, 새로운 Store와 Export 흐름, Web Editor 및 연출 기능을 개선했습니다.</p>
+        <p class="hero-copy">데스크톱 앱의 시작 Offset과 타임라인·Blender 편집 연동을 보강하고, Store와 Export 흐름, Web Editor 및 연출 기능을 개선했습니다.</p>
         <div class="release-facts">
           <span class="fact">Previous <strong>0.9.2</strong></span>
-          <span class="fact">Changes <strong>27</strong></span>
+          <span class="fact">Changes <strong>34</strong></span>
           <span class="fact">Desktop App</span><span class="fact">Web App</span>
         </div>
       </div>
@@ -492,6 +492,80 @@
                   
                   
                   
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">28</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>줄기별 시작 Offset 기능 추가</h3>
+                    <span class="tag tag-new">신규</span>
+                  </div>
+                  <p>Drone 줄기마다 시작 지연값을 frame 또는 초 단위로 설정할 수 있습니다. Offset을 적용하면 카드 길이는 유지한 채 해당 줄기 전체가 뒤로 밀립니다.</p>
+                  <aside class="warning-note"><strong>※ 참고</strong>불꽃신호 최적화를 이미 완료한 상태에서 시작 Offset을 새로 적용하거나 변경했다면, 변경된 타이밍을 반영하기 위해 불꽃신호 최적화를 다시 실행하는 것을 권장합니다.</aside>
+
+                  <button class="change-image" type="button" data-image="assets/stem-offset.png" data-alt="줄기별 시작 Offset 설정 화면">
+                    <img src="assets/stem-offset.png" alt="줄기별 시작 Offset 설정 화면">
+                    <span class="image-caption">줄기별 시작 Offset 설정 · 클릭하여 확대</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">29</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>Offset 적용 시 타임라인·Export 동기화 개선</h3>
+                    <span class="tag tag-improve">개선</span>
+                  </div>
+                  <p>시작 Offset이 적용된 줄기의 Switch 키프레임, Hook 키프레임, 타임라인 범위가 함께 갱신되도록 개선했습니다. Export 시에는 Offset이 적용된 구간을 반영하되, 출력 파일은 기존처럼 0프레임 기준으로 정리됩니다.</p>
+
+
+
+
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">30</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>카드 빠른 재선택 시 선택 상태 꼬임 방지</h3>
+                    <span class="tag tag-fix">수정</span>
+                  </div>
+                  <p>애니메이션 편집 모드 전환 중 다른 카드를 빠르게 선택했을 때, 이전 카드의 처리 결과가 뒤늦게 적용되던 문제를 방지했습니다.</p>
+
+
+
+
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">31</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>애니메이션 편집 진입 시 Blender Timeline·Outliner 자동 정렬</h3>
+                    <span class="tag tag-improve">개선</span>
+                  </div>
+                  <p>Scene 카드의 애니메이션 편집에 들어가면 Blender Timeline이 해당 카드 범위로 자동 정렬되고, Outliner도 활성 오브젝트 위치로 이동합니다.</p>
+
+
+
+                    <div class="image-gallery">
+
+                        <button class="change-image" type="button" data-image="assets/timeline-focus.png" data-alt="Blender Timeline이 카드 범위로 정렬된 화면">
+                          <img src="assets/timeline-focus.png" alt="Blender Timeline이 카드 범위로 정렬된 화면">
+                          <span class="image-caption">Timeline 카드 범위 자동 정렬 · 클릭하여 확대</span>
+                        </button>
+
+                        <button class="change-image" type="button" data-image="assets/outliner-focus.png" data-alt="Blender Outliner가 활성 오브젝트 위치로 이동한 화면">
+                          <img src="assets/outliner-focus.png" alt="Blender Outliner가 활성 오브젝트 위치로 이동한 화면">
+                          <span class="image-caption">Outliner 활성 오브젝트 자동 이동 · 클릭하여 확대</span>
+                        </button>
+
+                    </div>
                 </div>
               </section>
             
@@ -682,6 +756,36 @@
                   
                   
                   
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">32</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>편집 모드 진입 시 연결된 Blender 창 자동 포커스</h3>
+                    <span class="tag tag-improve">개선</span>
+                  </div>
+                  <p>디자인 편집, 분리비행, 불꽃신호 설정/삭제 진입 시 현재 앱과 연결된 Blender 창을 앞으로 가져오도록 개선했습니다. 여러 Blender가 열려 있어도 실제 연결된 Blender 창을 우선 포커스합니다.</p>
+
+
+
+
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">33</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>분리비행·불꽃신호 선택 시 X-Ray 자동 활성화</h3>
+                    <span class="tag tag-improve">개선</span>
+                  </div>
+                  <p>분리비행과 불꽃신호 편집에 들어갈 때 Blender X-Ray가 자동으로 켜져, 뒤쪽에 가려진 버텍스도 선택하기 쉬워졌습니다.</p>
+
+
+
+
                 </div>
               </section>
             
@@ -913,6 +1017,21 @@
                   <aside class="warning-note"><strong>※ 참고</strong>불꽃 신호 최적화 이후 불꽃을 수정한 경우에는 불꽃 신호 최적화를 다시 수행해야 합니다.</aside>
                   
                   
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">34</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>불꽃신호 편집 후 표시 상태 복원 개선</h3>
+                    <span class="tag tag-fix">수정</span>
+                  </div>
+                  <p>불꽃신호 설정, 삭제, 취소, 분리비행 그룹 생성 후 임시로 변경된 표시 상태가 원래 값으로 복원되도록 수정했습니다.</p>
+
+
+
+
                 </div>
               </section>
             
