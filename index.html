@@ -203,18 +203,6 @@
     .change h3 { margin: 0; font-size: 15px; font-weight: 600; line-height: 1.5; letter-spacing: -0.01em; }
     .change p { margin: 9px 0 0; color: var(--ink-soft); font-size: 13.5px; }
     .change strong { color: var(--ink); font-weight: 600; }
-    .tag {
-      flex: 0 0 auto;
-      padding: 3px 8px;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      font: 600 11px/1.3 var(--mono);
-      letter-spacing: 0.01em;
-    }
-    .tag-new { color: #15803d; background: #f0fdf4; border-color: #c5ead2; }
-    .tag-improve { color: #2d4cc8; background: #f2f4fb; border-color: #d2d9f3; }
-    .tag-fix { color: #b45309; background: #fffbeb; border-color: #f3e2bd; }
-    .tag-info { color: #0369a1; background: #f0f9ff; border-color: #c4e4f5; }
     .note {
       margin-top: 14px;
       padding: 12px 15px;
@@ -359,7 +347,7 @@
         <p class="hero-copy">데스크톱 앱의 시작 Offset과 타임라인·Blender 편집 연동을 보강하고, Store와 Export 흐름, Web Editor 및 연출 기능을 개선했습니다.</p>
         <div class="release-facts">
           <span class="fact">Previous <strong>0.9.2</strong></span>
-          <span class="fact">Changes <strong>34</strong></span>
+          <span class="fact">Changes <strong>36</strong></span>
           <span class="fact">Desktop App</span><span class="fact">Web App</span>
         </div>
       </div>
@@ -381,126 +369,87 @@
             </div>
           </header>
           <div class="change-list">
-            
+
               <section class="change">
                 <span class="change-index">01</span>
                 <div>
                   <div class="change-title-row">
                     <h3>카드 길이 변경 시 연관 데이터 이동 보강</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>카드 길이가 변경될 때 나머지 카드 위치와 Hook 키프레임 등 하위 컬렉션 데이터가 함께 이동하도록 Shift 기능을 보강했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
                 <span class="change-index">02</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Store에서 path3를 불러올 때 RGB 값이 비어 있던 문제 수정</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
-                  
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
                 <span class="change-index">03</span>
                 <div>
                   <div class="change-title-row">
                     <h3>경로 계산 시 path3 애니메이션이 Shift되지 않던 문제 수정</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
-                  
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
                 <span class="change-index">04</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Drone 줄기와 add2 줄기 작업 시 스위치 키프레임이 섞이던 문제 수정</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
                   <p>Drone 줄기와 add2 줄기를 번갈아 작업할 때 DroneMeshObject의 스위치 키프레임이 서로 섞이던 문제를 해결했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
                 <span class="change-index">05</span>
                 <div>
                   <div class="change-title-row">
                     <h3>RGB 비율 설정을 Export 단계로 이동</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>기존 RGB 비율 0.7 노드를 삭제하고, Export 단계에서 비율을 설정하도록 변경했습니다. 기본값은 70%입니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
                 <span class="change-index">06</span>
                 <div>
                   <div class="change-title-row">
                     <h3>이동 구간에서도 일관되도록 Twinkle 노드 개선</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>드론이 움직이는 구간에서 Twinkle 효과가 과하게 반짝이던 문제를 개선해 정지·이동 상태 모두에서 일관되게 표시됩니다.</p>
                   <aside class="note"><p>Geometry Nodes에서 <strong>Twinkle</strong>을 검색한 뒤, <strong>Group에 있는 Twinkle</strong>을 사용해야 합니다. Coloring의 Twinkle은 Asset Library 노드이므로 동일하게 동작하지 않습니다.</p><p>향후 Asset Library 없이 XneoPicasso에서 효과를 직접 선택할 수 있도록 개선할 예정입니다.</p></aside>
-                  
-                  
-                  
                     <div class="image-gallery">
-                      
                         <button class="change-image" type="button" data-image="assets/twinkle.png" data-alt="Geometry Nodes의 Group Twinkle 선택 화면">
                           <img src="assets/twinkle.png" alt="Geometry Nodes의 Group Twinkle 선택 화면">
                           <span class="image-caption">Group에 있는 Twinkle 노드 사용 · 클릭하여 확대</span>
                         </button>
-                      
                     </div>
-                </div>
-              </section>
-            
-              <section class="change">
-                <span class="change-index">25</span>
-                <div>
-                  <div class="change-title-row">
-                    <h3>장면 교체 시 노드 연결 누락 현상 수정</h3>
-                    <span class="tag tag-fix">수정</span>
-                  </div>
-                  <p>장면을 교체할 때 일부 노드 연결이 누락되던 문제를 수정했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
 
               <section class="change">
-                <span class="change-index">28</span>
+                <span class="change-index">07</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>장면 교체 시 노드 연결 누락 현상 수정</h3>
+                  </div>
+                  <p>장면을 교체할 때 일부 노드 연결이 누락되던 문제를 수정했습니다.</p>
+                </div>
+              </section>
+
+              <section class="change">
+                <span class="change-index">08</span>
                 <div>
                   <div class="change-title-row">
                     <h3>줄기별 시작 Offset 기능 추가</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>Drone 줄기마다 시작 지연값을 frame 또는 초 단위로 설정할 수 있습니다. Offset을 적용하면 카드 길이는 유지한 채 해당 줄기 전체가 뒤로 밀립니다.</p>
                   <aside class="warning-note"><strong>※ 참고</strong>불꽃신호 최적화를 이미 완료한 상태에서 시작 Offset을 새로 적용하거나 변경했다면, 변경된 타이밍을 반영하기 위해 불꽃신호 최적화를 다시 실행하는 것을 권장합니다.</aside>
@@ -513,65 +462,48 @@
               </section>
 
               <section class="change">
-                <span class="change-index">29</span>
+                <span class="change-index">09</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Offset 적용 시 타임라인·Export 동기화 개선</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>시작 Offset이 적용된 줄기의 Switch 키프레임, Hook 키프레임, 타임라인 범위가 함께 갱신되도록 개선했습니다. Export 시에는 Offset이 적용된 구간을 반영하되, 출력 파일은 기존처럼 0프레임 기준으로 정리됩니다.</p>
-
-
-
-
                 </div>
               </section>
 
               <section class="change">
-                <span class="change-index">30</span>
+                <span class="change-index">10</span>
                 <div>
                   <div class="change-title-row">
                     <h3>카드 빠른 재선택 시 선택 상태 꼬임 방지</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
                   <p>애니메이션 편집 모드 전환 중 다른 카드를 빠르게 선택했을 때, 이전 카드의 처리 결과가 뒤늦게 적용되던 문제를 방지했습니다.</p>
-
-
-
-
                 </div>
               </section>
 
               <section class="change">
-                <span class="change-index">31</span>
+                <span class="change-index">11</span>
                 <div>
                   <div class="change-title-row">
                     <h3>애니메이션 편집 진입 시 Blender Timeline·Outliner 자동 정렬</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>Scene 카드의 애니메이션 편집에 들어가면 Blender Timeline이 해당 카드 범위로 자동 정렬되고, Outliner도 활성 오브젝트 위치로 이동합니다.</p>
-
-
-
                     <div class="image-gallery">
-
                         <button class="change-image" type="button" data-image="assets/timeline-focus.png" data-alt="Blender Timeline이 카드 범위로 정렬된 화면">
                           <img src="assets/timeline-focus.png" alt="Blender Timeline이 카드 범위로 정렬된 화면">
                           <span class="image-caption">Timeline 카드 범위 자동 정렬 · 클릭하여 확대</span>
                         </button>
-
                         <button class="change-image" type="button" data-image="assets/outliner-focus.png" data-alt="Blender Outliner가 활성 오브젝트 위치로 이동한 화면">
                           <img src="assets/outliner-focus.png" alt="Blender Outliner가 활성 오브젝트 위치로 이동한 화면">
                           <span class="image-caption">Outliner 활성 오브젝트 자동 이동 · 클릭하여 확대</span>
                         </button>
-
                     </div>
                 </div>
               </section>
-            
+
           </div>
         </section>
-      
+
         <section class="release-section" id="store">
           <header class="section-head">
             <span class="section-number">02</span>
@@ -581,63 +513,50 @@
             </div>
           </header>
           <div class="change-list">
-            
+
               <section class="change">
-                <span class="change-index">07</span>
+                <span class="change-index">01</span>
                 <div>
                   <div class="change-title-row">
                     <h3>별도 장면 Store 구축</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>기존 Store 장면 업로드의 권한 문제를 해결하기 위해 회사 계정으로 새로운 서버를 구축했습니다. <strong>장면은 Store(test)를 통해 업로드할 수 있습니다.</strong> Store(test)의 Upload Scene으로 장면을 등록하고, Hook 키프레임이 포함된 애니메이션은 장면 카드의 path3 업로드로 등록할 수 있습니다.</p>
                   <aside class="note"><p><strong>Local Scene Upload</strong>는 업로드 없이 빠르게 Formation 작업을 진행할 때 사용할 수 있습니다.</p><p>처음 한 번 로그인해야 하며, 이후 로그인 상태가 유지됩니다. <strong>@pabloair.com</strong> 계정만 사용할 수 있습니다. 한 달 동안 문제가 없으면 기존 Store 탭을 삭제하고 Store(test)의 이름을 변경할 예정입니다.</p></aside>
                   <aside class="warning-note"><strong>※ 참고</strong>기존 Store에 등록된 장면의 최대 RGB 값은 0.7입니다. 이를 다시 70%로 Export하면 RGB 값이 0.5 이하로 낮아질 수 있습니다.</aside>
-                  
-                  
                     <div class="image-gallery">
-                      
                         <button class="change-image" type="button" data-image="assets/store(test).png" data-alt="Store(test) 탭 화면">
                           <img src="assets/store(test).png" alt="Store(test) 탭 화면">
                           <span class="image-caption">장면 업로드는 Store(test)에서 진행 · 클릭하여 확대</span>
                         </button>
-                      
                         <button class="change-image" type="button" data-image="assets/store(test)-login.png" data-alt="Store(test) 로그인 화면">
                           <img src="assets/store(test)-login.png" alt="Store(test) 로그인 화면">
                           <span class="image-caption">Store(test) 최초 로그인 · 클릭하여 확대</span>
                         </button>
-                      
                         <button class="change-image" type="button" data-image="assets/upload-scene.png" data-alt="Store(test)의 Upload Scene 화면">
                           <img src="assets/upload-scene.png" alt="Store(test)의 Upload Scene 화면">
                           <span class="image-caption">Upload Scene으로 장면 등록 · 클릭하여 확대</span>
                         </button>
-                      
                         <button class="change-image" type="button" data-image="assets/path3-upload.png" data-alt="장면 카드의 path3 업로드 화면">
                           <img src="assets/path3-upload.png" alt="장면 카드의 path3 업로드 화면">
                           <span class="image-caption">Hook 애니메이션 path3 업로드 · 클릭하여 확대</span>
                         </button>
-                      
                     </div>
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">08</span>
+                <span class="change-index">02</span>
                 <div>
                   <div class="change-title-row">
                     <h3>path3 Import 중 중복 조작 방지</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
                   <p>Store에서 path3를 Import하는 동안 블로킹 오버레이를 표시해 완료 전 다른 작업으로 인해 문제가 발생하지 않도록 개선했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
           </div>
         </section>
-      
+
         <section class="release-section" id="export">
           <header class="section-head">
             <span class="section-number">03</span>
@@ -647,78 +566,80 @@
             </div>
           </header>
           <div class="change-list">
-            
+
               <section class="change">
-                <span class="change-index">09</span>
+                <span class="change-index">01</span>
                 <div>
                   <div class="change-title-row">
                     <h3>FPS 설정을 Export 단계로 이동</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>Transition 카드에 있던 FPS 설정을 삭제하고 Export 시 선택하도록 변경했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">10</span>
+                <span class="change-index">02</span>
                 <div>
                   <div class="change-title-row">
                     <h3>LED 비율 설정을 Export 단계로 이동</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>Color Manager의 LED 비율 노드를 삭제하고 Export 시 비율을 선택하도록 변경했습니다. 기본값은 70%입니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">11</span>
+                <span class="change-index">03</span>
                 <div>
                   <div class="change-title-row">
                     <h3>불꽃 신호·분리 비행 Modal 옵션 정리</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>사용하지 않거나 중복되는 옵션을 정리해 Export 흐름을 간결하게 만들었습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">26</span>
+                <span class="change-index">04</span>
                 <div>
                   <div class="change-title-row">
                     <h3>장면별 패스 추출 옵션 추가</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>Export 옵션에서 <strong>Scene Only</strong>를 체크하면 패스를 추출할 장면을 선택할 수 있습니다.</p>
-                  
-                  
-                  
-                  
                     <div class="image-gallery image-gallery-compact">
-                      
                         <button class="change-image" type="button" data-image="assets/scene-export.png" data-alt="Scene Only를 이용한 장면별 패스 추출 옵션 화면">
                           <img src="assets/scene-export.png" alt="Scene Only를 이용한 장면별 패스 추출 옵션 화면">
                           <span class="image-caption">Scene Only 체크 후 추출할 장면 선택 · 클릭하여 확대</span>
                         </button>
-                      
                     </div>
                 </div>
               </section>
-            
+
+              <section class="change">
+                <span class="change-index">05</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>컬러피커 사용안내</h3>
+                  </div>
+                  <p>작업 시 컬러피커 기본 값인 perceptual 그대로 사용하면 됩니다.</p>
+                  <p>스프레드 시트에는 실제 RGB 값인 linear를 표시하므로 다르게 나올 수 있습니다.</p>
+                  <p>그러나 export 할 때 linear → perceptual(sRGB) 로 변환하도록 로직을 넣어놨습니다.</p>
+                  <p>add 노드 등으로 rgb 값이 1을 초과하는 경우에는, 최대값을 기준으로 전체 RGB를 같은 비율로 낮춰 1 이하로 노멀라이즈 합니다. (특정 채널만 clamp하면 색상 비율이 깨지기 때문입니다)</p>
+                  <aside class="warning-note"><strong>※ 참고</strong>작업 시 RGB는 1까지 모두 사용하시면 됩니다. (led value를 70%로 설정한 경우)<br>작업 시 RGB를 0.7로 하게 되면 패스 파일에는 0.49(led value 70% 적용 시)로 기록되므로 유의해야 합니다.</aside>
+                    <div class="image-gallery">
+                        <button class="change-image" type="button" data-image="assets/colorpicker.png" data-alt="컬러피커 기본값 perceptual 화면">
+                          <img src="assets/colorpicker.png" alt="컬러피커 기본값 perceptual 화면">
+                          <span class="image-caption">컬러피커 기본값 perceptual · 클릭하여 확대</span>
+                        </button>
+                        <button class="change-image" type="button" data-image="assets/sheet.png" data-alt="스프레드시트의 linear RGB 값 화면">
+                          <img src="assets/sheet.png" alt="스프레드시트의 linear RGB 값 화면">
+                          <span class="image-caption">스프레드시트는 linear RGB 값 표시 · 클릭하여 확대</span>
+                        </button>
+                    </div>
+                </div>
+              </section>
+
           </div>
         </section>
-      
+
         <section class="release-section" id="viewport-layout">
           <header class="section-head">
             <span class="section-number">04</span>
@@ -728,70 +649,50 @@
             </div>
           </header>
           <div class="change-list">
-            
+
               <section class="change">
-                <span class="change-index">12</span>
+                <span class="change-index">01</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Bloom 자동 설정 버튼 추가</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>Desktop App 상단에 Bloom 버튼을 추가했습니다. Blender 5.1 기준으로 Bloom Compositor가 자동 설정됩니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">13</span>
+                <span class="change-index">02</span>
                 <div>
                   <div class="change-title-row">
                     <h3>불꽃 배치도 Grid 기본값을 0.1로 변경</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>지상 배치를 0.75 등으로 설정할 때 별도로 Grid 값을 수정하지 않아도 됩니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
 
               <section class="change">
-                <span class="change-index">32</span>
+                <span class="change-index">03</span>
                 <div>
                   <div class="change-title-row">
                     <h3>편집 모드 진입 시 연결된 Blender 창 자동 포커스</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>디자인 편집, 분리비행, 불꽃신호 설정/삭제 진입 시 현재 앱과 연결된 Blender 창을 앞으로 가져오도록 개선했습니다. 여러 Blender가 열려 있어도 실제 연결된 Blender 창을 우선 포커스합니다.</p>
-
-
-
-
                 </div>
               </section>
 
               <section class="change">
-                <span class="change-index">33</span>
+                <span class="change-index">04</span>
                 <div>
                   <div class="change-title-row">
                     <h3>분리비행·불꽃신호 선택 시 X-Ray 자동 활성화</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>분리비행과 불꽃신호 편집에 들어갈 때 Blender X-Ray가 자동으로 켜져, 뒤쪽에 가려진 버텍스도 선택하기 쉬워졌습니다.</p>
-
-
-
-
                 </div>
               </section>
-            
+
           </div>
         </section>
-      
+
         <section class="release-section" id="web-editor">
           <header class="section-head">
             <span class="section-number">05</span>
@@ -801,85 +702,75 @@
             </div>
           </header>
           <div class="change-list">
-            
+
               <section class="change">
-                <span class="change-index">14</span>
+                <span class="change-index">01</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Desktop App 내 접속</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>웹 버전은 주소로도 접속할 수 있으나 iframe에 Embed된 Web Editor에서 작업을 부탁드립니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">15</span>
+                <span class="change-index">02</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Web 최단 경로 계산 시 로컬 ORCA 지원</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
-                  
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">16</span>
+                <span class="change-index">03</span>
                 <div>
                   <div class="change-title-row">
                     <h3>AI Generation 서버 재연결</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
                   <p>작동하지 않던 AI Generation 기능을 회사 계정의 새 서버에 연결했습니다.</p>
                   <aside class="note"><p>드론 1,000대 기준 장면 1개 생성 시 약 100원의 비용이 발생합니다.</p></aside>
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">17</span>
+                <span class="change-index">04</span>
                 <div>
                   <div class="change-title-row">
                     <h3>시연용 AI 모델 변경</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>지원이 종료된 gemini-2.0-flash-exp를 gemini-2.5-flash-image로 교체했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">18</span>
+                <span class="change-index">05</span>
                 <div>
                   <div class="change-title-row">
                     <h3>Google Maps 서버 재연결</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
                   <p>작동하지 않던 Google Maps 기능을 회사 계정의 새 서버에 연결했습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
+              <section class="change">
+                <span class="change-index">06</span>
+                <div>
+                  <div class="change-title-row">
+                    <h3>3D Terrain 입체 지형 데이터 지원</h3>
+                  </div>
+                  <p>3D Terrain을 선택하면 좌표계가 보정 된 입체 지형 데이터를 불러올 수 있습니다.</p>
+                  <p>테스트로 넣어본거라 아직 다듬어야 합니다. 다음 패치 적용예정 (예: New York 등 사용 가능, 한국은 사용불가)</p>
+                  <button class="change-image" type="button" data-image="assets/3dmap.png" data-alt="3D Terrain 입체 지형 데이터 화면">
+                    <img src="assets/3dmap.png" alt="3D Terrain 입체 지형 데이터 화면">
+                    <span class="image-caption">3D Terrain 입체 지형 데이터 · 클릭하여 확대</span>
+                  </button>
+                </div>
+              </section>
+
           </div>
         </section>
-      
+
         <section class="release-section" id="production">
           <header class="section-head">
             <span class="section-number">06</span>
@@ -889,152 +780,110 @@
             </div>
           </header>
           <div class="change-list">
-            
+
               <section class="change">
-                <span class="change-index">19</span>
+                <span class="change-index">01</span>
                 <div>
                   <div class="change-title-row">
                     <h3>줄기 시스템에 불꽃 신호 최적화 기능 추가</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>기존 불꽃 신호 최적화 기능을 줄기 시스템에 이식했습니다.</p>
                   <aside class="note"><p>현재는 <strong>Test</strong> 버튼으로 사용해 주세요. 한 달 동안 문제가 없으면 기존 불꽃 신호 최적화 버튼을 삭제할 예정입니다.</p></aside>
-                  
-                  
                     <button class="change-image" type="button" data-image="assets/firework-signal-optimization.png" data-alt="줄기 시스템의 불꽃 신호 최적화 기능 화면">
                       <img src="assets/firework-signal-optimization.png" alt="줄기 시스템의 불꽃 신호 최적화 기능 화면">
                       <span class="image-caption">불꽃 신호 최적화 기능 · 클릭하여 확대</span>
                     </button>
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">20</span>
+                <span class="change-index">02</span>
                 <div>
                   <div class="change-title-row">
                     <h3>불꽃 배치도 PDF 출력 시 모양이 달라지던 문제 수정</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
-                  
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">21</span>
+                <span class="change-index">03</span>
                 <div>
                   <div class="change-title-row">
                     <h3>ORCA 자동 복구 지원</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>이제 Restore Transitions 기능을 사용하지 않아도 경로가 자동으로 복구됩니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">22</span>
+                <span class="change-index">04</span>
                 <div>
                   <div class="change-title-row">
                     <h3>이륙 대형 Coloring 작업 간소화</h3>
-                    <span class="tag tag-improve">개선</span>
                   </div>
-                  <p>Drone 카드에서 이륙 대형 편집을 누르면 TakeOff_Formation_Coloring Collection과 Mesh가 생성되고 Color Manager가 자동 설정됩니다. 이륙 대형의 Color, Animation, 지상 배치 변경은 모두&nbsp;<font color="#3730a3"><span style="font-size: 12px; background-color: rgb(247, 247, 255);"><b>TakeOff_Formation_Coloring Mesh</b></span></font>에서 진행합니다.</p>
-                  <aside class="note"><p>지상 배치&nbsp;<b>변경 후</b>&nbsp;<strong>이륙 대형 동기화</strong>를 누르면 DroneMeshObject와 DroneMeshObject_animation이 같은 모양으로 동기화 됩니다.</p><p>이륙 대형 Animation은 <b>Hook을 직접 생성하지 않고</b>, TakeOff_Formation_Coloring에서 Vertex를 선택한 뒤 <strong>Hook 동기화 </strong>기능을 사용하면</p><p>두 Mesh에 동일한 Hook이 연결·생성됩니다.</p></aside>
-                  
-                  
-                  
+                  <p>Drone 카드에서 이륙 대형 편집을 누르면 TakeOff_Formation_Coloring Collection과 Mesh가 생성되고 Color Manager가 자동 설정됩니다. 이륙 대형의 Color, Animation, 지상 배치 변경은 모두 <strong>TakeOff_Formation_Coloring Mesh</strong>에서 진행합니다.</p>
+                  <aside class="note"><p>지상 배치 <strong>변경 후</strong> <strong>이륙 대형 동기화</strong>를 누르면 DroneMeshObject와 DroneMeshObject_animation이 같은 모양으로 동기화 됩니다.</p><p>이륙 대형 Animation은 <strong>Hook을 직접 생성하지 않고</strong>, TakeOff_Formation_Coloring에서 Vertex를 선택한 뒤 <strong>Hook 동기화</strong> 기능을 사용하면 두 Mesh에 동일한 Hook이 연결·생성됩니다.</p></aside>
                     <div class="image-gallery">
-                      
                         <button class="change-image" type="button" data-image="assets/takeoff-formation.png" data-alt="이륙 대형 Coloring 작업 화면">
                           <img src="assets/takeoff-formation.png" alt="이륙 대형 Coloring 작업 화면">
                           <span class="image-caption">이륙 대형 Coloring 작업 · 클릭하여 확대</span>
                         </button>
-                      
                     </div>
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">23</span>
+                <span class="change-index">05</span>
                 <div>
                   <div class="change-title-row">
                     <h3>장면 카드 이름 식별 기능 추가</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>장면 카드 이름 영역을 선택해 이름을 입력한 뒤 Enter로 편집할 수 있습니다. 편집한 이름은 Blender에 생성되는 분홍색 Collection에서 식별할 수 있습니다.</p>
                   <aside class="note"><p>Blender 이름 자체를 변경하면 수정 범위가 커지기 때문에 현재는 Collection 식별 방식으로 제공합니다.</p></aside>
-                  
-                  
-                  
                     <div class="image-gallery">
-                      
                         <button class="change-image" type="button" data-image="assets/rename.png" data-alt="장면 카드 이름 편집 화면">
                           <img src="assets/rename.png" alt="장면 카드 이름 편집 화면">
                           <span class="image-caption">장면 카드 이름 편집 · 클릭하여 확대</span>
                         </button>
-                      
                         <button class="change-image" type="button" data-image="assets/collection.png" data-alt="Blender Collection에서 장면 이름을 식별하는 화면">
                           <img src="assets/collection.png" alt="Blender Collection에서 장면 이름을 식별하는 화면">
                           <span class="image-caption">Collection에서 장면 이름 식별 · 클릭하여 확대</span>
                         </button>
-                      
                     </div>
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">24</span>
+                <span class="change-index">06</span>
                 <div>
                   <div class="change-title-row">
                     <h3>PCA Coloring을 XneoPicasso에 병합</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p>PCA Coloring은 26_socket_server_addon에 포함되어 있습니다.</p>
-                  
-                  
-                  
-                  
                 </div>
               </section>
-            
+
               <section class="change">
-                <span class="change-index">27</span>
+                <span class="change-index">07</span>
                 <div>
                   <div class="change-title-row">
                     <h3>불꽃 신호 부분·전체 삭제 기능 추가</h3>
-                    <span class="tag tag-new">신규</span>
                   </div>
                   <p><strong>버텍스 선택 삭제</strong>는 선택한 버텍스에 적용된 불꽃 신호만 삭제합니다. <strong>전체 삭제</strong>는 해당 카드에 적용된 모든 불꽃 신호를 일괄 삭제합니다.</p>
-                  
                   <aside class="warning-note"><strong>※ 참고</strong>불꽃 신호 최적화 이후 불꽃을 수정한 경우에는 불꽃 신호 최적화를 다시 수행해야 합니다.</aside>
-                  
-                  
                 </div>
               </section>
 
               <section class="change">
-                <span class="change-index">34</span>
+                <span class="change-index">08</span>
                 <div>
                   <div class="change-title-row">
                     <h3>불꽃신호 편집 후 표시 상태 복원 개선</h3>
-                    <span class="tag tag-fix">수정</span>
                   </div>
                   <p>불꽃신호 설정, 삭제, 취소, 분리비행 그룹 생성 후 임시로 변경된 표시 상태가 원래 값으로 복원되도록 수정했습니다.</p>
-
-
-
-
                 </div>
               </section>
-            
+
           </div>
         </section>
       </article>
@@ -1087,6 +936,23 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && modal && modal.classList.contains("open")) closeModal();
       });
+
+      var sideLinks = document.querySelectorAll("#sideNav a");
+      var sections = document.querySelectorAll(".release-section");
+      if (sideLinks.length && sections.length && "IntersectionObserver" in window) {
+        var updateActive = function () {
+          var line = window.innerHeight * 0.4;
+          var current = sections[0].id;
+          sections.forEach(function (section) {
+            if (section.getBoundingClientRect().top <= line) current = section.id;
+          });
+          sideLinks.forEach(function (link) {
+            link.classList.toggle("active", link.getAttribute("href") === "#" + current);
+          });
+        };
+        var observer = new IntersectionObserver(updateActive, { rootMargin: "-96px 0px -60% 0px" });
+        sections.forEach(function (section) { observer.observe(section); });
+      }
     })();
   </script>
 
